@@ -47,3 +47,23 @@ graph.add_edge('chat_node', END)
 
 # compile the graph
 chatbot = graph.compile(checkpointer=checkpointer)
+
+
+
+# ======= streaming ===========
+# stream = chatbot.stream(                                                            # stream gives a Generator Object
+#     {'messages': [HumanMessage(content="What is the recipe to make pizza")]}, 
+#     config={ 'configurable': { 'thread_id': 'thread_1'}},
+#     stream_mode='messages'
+# )
+
+# print(type(stream))
+
+
+# for message_chunk, metadata in chatbot.stream(                                      # here we iterate over the Generator
+#     {'messages': [HumanMessage(content="What is the recipe to make pizza")]}, 
+#     config={ 'configurable': { 'thread_id': 'thread_1'}},
+#     stream_mode='messages'
+# ):
+#     if message_chunk.content:
+#         print(message_chunk.content, end=" ", flush=True)
